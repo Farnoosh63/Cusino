@@ -15,7 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AccountActivity"></activity>
+        <activity
+            android:name=".AccountActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.campfinder.MainActivity"></meta-data>
+        </activity>
+        <activity android:name=".UserActivity"
+                  android:theme="@style/AppTheme"></activity>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.campfinder.AccountActivity"></meta-data>
     </application>
 
 </manifest>
