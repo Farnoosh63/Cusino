@@ -20,13 +20,29 @@
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.campfinder.MainActivity"></meta-data>
+                android:value="com.epicodus.campfinder.MainActivity" />
         </activity>
-        <activity android:name=".UserActivity"
-                  android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".UserActivity"
+            android:theme="@style/AppTheme">
+
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.campfinder.AccountActivity"></meta-data>
+            android:value="com.epicodus.campfinder.AccountActivity">
+        </meta-data>
+
+        </activity>
+        <activity
+            android:name=".ExistingUserActivity"
+            android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.campfinder.ExistingUserActivity">
+        </meta-data>
+
+        </activity>
+
     </application>
 
 </manifest>

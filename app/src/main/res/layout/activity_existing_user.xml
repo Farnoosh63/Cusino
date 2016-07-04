@@ -7,20 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.epicodus.campfinder.AccountActivity"
-    android:transitionGroup="false"
-    style="@style/AppTheme">
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:ems="10"
-        android:id="@+id/name"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp" />
+    tools:context="com.epicodus.campfinder.ExistingUserActivity">
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,8 +31,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sign up"
-        android:id="@+id/submitbutton"
+        android:text="log in"
+        android:id="@+id/loginbutton"
         android:layout_gravity="center"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
@@ -53,11 +40,13 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
+        android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/email"
-        android:layout_below="@+id/password"
+        android:id="@+id/name"
+        android:hint="name"
+        android:layout_below="@+id/textView2"
         android:layout_alignLeft="@+id/password"
         android:layout_alignStart="@+id/password"
-        android:hint="Email" />
+        android:layout_marginTop="61dp" />
+
 </RelativeLayout>

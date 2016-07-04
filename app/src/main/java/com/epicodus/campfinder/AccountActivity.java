@@ -1,6 +1,5 @@
 package com.epicodus.campfinder;
 
-import android.accounts.Account;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,8 +14,7 @@ public class AccountActivity extends AppCompatActivity {
     @Bind(R.id.name) EditText mName;
     @Bind(R.id.password) EditText mPassword;
     @Bind(R.id.email) EditText mEmail;
-    @Bind(R.id.submitbutton)
-    Button mSubmitButton;
+    @Bind(R.id.submitbutton) Button mSubmitButton;
 
 
     @Override

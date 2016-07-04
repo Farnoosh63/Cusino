@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mRadioButtonYes) {
-            Intent intent = new Intent(MainActivity.this, AccountActivity.class);
+            Intent intent = new Intent(MainActivity.this, ExistingUserActivity.class);
             startActivity(intent);
             } else {
                 Intent intent = new Intent(MainActivity.this, AccountActivity.class);
