@@ -33,6 +33,7 @@ public class AccountActivity extends AppCompatActivity {
             String password = mPassword.getText().toString();
             String email = mEmail.getText().toString();
             Intent intent = new Intent(AccountActivity.this, UserActivity.class);
+            intent.putExtra("name", name);
             startActivity(intent);
         }
      });
