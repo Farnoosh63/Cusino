@@ -30,7 +30,7 @@ Not Seen Yet!
 clone repo using Android Studio checkout Project using VCS
 run application
 select emulator
-  $ preferably Nexus 6 API 23
+  * preferably Nexus 6 API 23
 enjoy!
 ```
 
