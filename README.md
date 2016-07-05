@@ -1,4 +1,4 @@
-# CampFinder ![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)
+# CampFinder ![campfinder](http://www.girlscouts.org/content/dam/girlscouts-shared/images/Icons/brainy-icons-32/fire_32.png)
 > **By Farnoosh Johnson**
 
 #### _Epicodus Android class, July 2016_
@@ -12,11 +12,23 @@
 
 ## Known Bugs
 
-Not Seen Yet!
+> **Not Seen Yet!**
+
+
+
+
+![image](http://www.advanceddigitalsecurity.co.uk/files/4313/1654/9222/process.png)  
+```
+  clone repo using Android Studio checkout Project using VCS
+  run application
+  select emulator
+    * preferably Nexus 6 API 23
+  enjoy!
+  ```
+ 
 
 > You may use this application as an example to show the proficiency of a level 3 student in Epicodus.
 
-###### Thanks
 
 **Accessing to the remote repository on account :** [farnoosh63](https://github.com/Farnoosh63/CampFinder.git)
 
@@ -24,15 +36,6 @@ Not Seen Yet!
 > there is no github page created for this app
 
 
-
-![image](https://developer.chrome.com/static/images/sample-default-icon.png)
-```
-clone repo using Android Studio checkout Project using VCS
-run application
-select emulator
-  * preferably Nexus 6 API 23
-enjoy!
-```
 
 Legal
 ------
