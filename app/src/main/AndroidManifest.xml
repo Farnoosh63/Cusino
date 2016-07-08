@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,29 +16,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AccountActivity"
+            android:name=".ui.AccountActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.campfinder.MainActivity" />
+                android:value="com.epicodus.campfinder.ui.MainActivity" />
         </activity>
         <activity
-            android:name=".UserActivity"
+            android:name=".ui.UserActivity"
             android:theme="@style/AppTheme">
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.campfinder.AccountActivity">
+            android:value="com.epicodus.campfinder.ui.AccountActivity">
         </meta-data>
 
         </activity>
         <activity
-            android:name=".ExistingUserActivity"
+            android:name=".ui.ExistingUserActivity"
             android:theme="@style/AppTheme">
 
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.campfinder.ExistingUserActivity">
+            android:value="com.epicodus.campfinder.ui.ExistingUserActivity">
         </meta-data>
 
         </activity>
