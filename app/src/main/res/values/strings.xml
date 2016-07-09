@@ -1,7 +1,5 @@
 <resources>
-<<<<<<< HEAD
+
     <string name="app_name">FoodFinder</string>
-=======
-    <string name="app_name">CampFinder</string>
->>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
+
 </resources>

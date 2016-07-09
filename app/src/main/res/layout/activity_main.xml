@@ -7,11 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-<<<<<<< HEAD
+
     tools:context="com.epicodus.foodfinder.ui.MainActivity">
-=======
-    tools:context="com.epicodus.campfinder.MainActivity">
->>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
+
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -27,15 +25,9 @@
             android:id="@+id/toolbar_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:text="Food Finder"
-=======
-            android:text="Camp Finder"
->>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
-            android:textColor="@android:color/white"
-            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:layout_gravity="center"
-            />
+
+            android:text="Food Finder"></TextView>
+
 
     </android.support.v7.widget.Toolbar>
 

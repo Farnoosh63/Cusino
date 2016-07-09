@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
+
     package="com.epicodus.foodfinder">
-=======
-    package="com.epicodus.campfinder">
->>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
+
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,11 +12,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme">
-<<<<<<< HEAD
+
         <activity android:name="com.epicodus.foodfinder.ui.MainActivity">
-=======
-        <activity android:name=".ui.MainActivity">
->>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
+
             android:name="com.epicodus.foodfinder.ui.AccountActivity"
             android:theme="@style/AppTheme">
             <meta-data
@@ -48,29 +44,7 @@
                 android:value="com.epicodus.foodfinder.ui.ExistingUserActivity"></meta-data>
         </activity>
         <activity android:name="com.epicodus.foodfinder.ui.SearchActivity"></activity>
-=======
-            android:name=".ui.AccountActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.campfinder.ui.MainActivity" />
-        </activity>
-        <activity
-            android:name=".ui.UserActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.campfinder.ui.AccountActivity"></meta-data>
-        </activity>
-        <activity
-            android:name=".ui.ExistingUserActivity"
-            android:theme="@style/AppTheme">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.campfinder.ui.ExistingUserActivity"></meta-data>
-        </activity>
-        <activity android:name=".ui.SearchActivity"></activity>
->>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
+
     </application>
 
 </manifest>
