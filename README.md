@@ -1,4 +1,4 @@
-# FoodFinder ![foodfinder](http://image.flaticon.com/icons/png/128/35/35194.png)
+# FoodFinder ![foodfinder](https://image.freepik.com/free-icon/food-donation_318-81885.png)
 
 > **By Farnoosh Johnson**
 
