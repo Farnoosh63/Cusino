@@ -1,4 +1,4 @@
-# FoodFinder ![foodfinder](http://www.girlscouts.org/content/dam/girlscouts-shared/images/Icons/brainy-icons-32/fire_32.png)
+# FoodFinder ![foodfinder](http://image.flaticon.com/icons/png/128/35/35194.png)
 
 > **By Farnoosh Johnson**
 
@@ -10,7 +10,7 @@
 ## __Description__
 
 
-######  FoodFinder is an Android application that markets mobile app, which allow user to search by location and find their desired foodground as well as publish reviews about foodgrounds.
+######  FoodFinder is an Android application that markets mobile app, which allow user to search by any type of food or ingredients and find their desired recipe.
 
 
 ## Known Bugs
