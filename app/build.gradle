@@ -27,7 +27,7 @@ android {
 
     }
 //    buildTypes.each {
-//        it.buildConfigField 'String', 'CAMP_API_KEY', CampApiKey
+//        it.buildConfigField 'String', 'CAMP_API_KEY', CAMP_API_KEY
 //    }
 }
 
