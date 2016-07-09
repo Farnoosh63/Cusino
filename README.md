@@ -1,5 +1,5 @@
-#  ![foodfinder](https://image.freepik.com/free-icon/food-donation_318-81885.png)
-# FoodFinder
+# FoodFinder ![foodfinder](https://maxcdn.icons8.com/iOS7/PNG/50/Ecommerce/food-50.png)
+
 
 > **By Farnoosh Johnson**
 
