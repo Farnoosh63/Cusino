@@ -7,7 +7,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+<<<<<<< HEAD
     tools:context="com.epicodus.foodfinder.ui.UserActivity">
+=======
+    tools:context="com.epicodus.campfinder.ui.UserActivity">
+>>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
 
     <EditText
         android:layout_width="wrap_content"

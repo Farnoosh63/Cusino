@@ -1,4 +1,5 @@
 # FoodFinder ![foodfinder](http://www.girlscouts.org/content/dam/girlscouts-shared/images/Icons/brainy-icons-32/fire_32.png)
+
 > **By Farnoosh Johnson**
 
 #### _Epicodus Android class, July 2016_
@@ -8,7 +9,9 @@
 
 ## __Description__
 
-######  FoodFinder is an Android application that markets mobile app, which allow user to search by location and find their desired foodground as well as publish reviews about foodgrounds. 
+
+######  FoodFinder is an Android application that markets mobile app, which allow user to search by location and find their desired foodground as well as publish reviews about foodgrounds.
+
 
 ## Known Bugs
 
@@ -25,12 +28,14 @@
     * preferably Nexus 6 API 23
   enjoy!
   ```
- 
+
 
 > You may use this application as an example to show the proficiency of a level 3 student in Epicodus.
 
 
+
 **Accessing to the remote repository on account :** [farnoosh63](https://github.com/Farnoosh63/FoodFinder.git)
+
 
 **Accessing to github pages for this application :**
 > there is no github page created for this app

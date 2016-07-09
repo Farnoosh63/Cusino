@@ -11,7 +11,11 @@ android {
     }
 
     defaultConfig {
+<<<<<<< HEAD
         applicationId "com.epicodus.foodfinder"
+=======
+        applicationId "com.epicodus.campfinder"
+>>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
@@ -26,7 +30,13 @@ android {
         }
 
     }
+<<<<<<< HEAD
 
+=======
+//    buildTypes.each {
+//        it.buildConfigField 'String', 'CAMP_API_KEY', CAMP_API_KEY
+//    }
+>>>>>>> c2373abaee6329df70307343b14e9d1d900c9c7f
 }
 
 apply plugin: 'com.neenbedankt.android-apt'
