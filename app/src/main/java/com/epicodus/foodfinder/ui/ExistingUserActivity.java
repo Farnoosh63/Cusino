@@ -1,5 +1,6 @@
 package com.epicodus.foodfinder.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,8 @@ public class ExistingUserActivity extends AppCompatActivity implements View.OnCl
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
+
 
 
     @Bind(R.id.password) EditText mPassword;
@@ -54,6 +57,7 @@ public class ExistingUserActivity extends AppCompatActivity implements View.OnCl
             }
         };
         mLoginButton.setOnClickListener(this);
+        createAuthProgressDialog();
     }
 
 
@@ -76,10 +80,15 @@ public class ExistingUserActivity extends AppCompatActivity implements View.OnCl
             return;
         }
 
+        mAuthProgressDialog.show();
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        mAuthProgressDialog.dismiss();
+
                         if (!task.isSuccessful()) {
                             Log.w("Task.isNOTSuccessful", "signInWithEmail", task.getException());
                             Toast.makeText(ExistingUserActivity.this, "Authentication failed.",
@@ -103,5 +112,11 @@ public class ExistingUserActivity extends AppCompatActivity implements View.OnCl
         if (mAuthListener != null) {
             mAuth.removeAuthStateListener(mAuthListener);
         }
+    }
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating ...");
+        mAuthProgressDialog.setCancelable(false);
     }
 }
