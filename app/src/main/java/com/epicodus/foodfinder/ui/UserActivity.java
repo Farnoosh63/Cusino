@@ -27,8 +27,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private SharedPreferences.Editor mEditor;
-    private SharedPreferences mSharedPreferences;
 
 
 
@@ -44,8 +42,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_user);
         ButterKnife.bind(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -95,19 +92,14 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mFindFoodsButton){
-            String foodName = mSearchFood.getText().toString();
-            if (!(foodName).equals("")){
-                addToSharedPreferences(foodName);
-            }
+
             Intent intent = new Intent(UserActivity.this, SearchActivity.class);
             startActivity(intent);
         }
 
     }
 
-    private void addToSharedPreferences(String food) {
-        mEditor.putString(Constants.PREFERENCES_FOOD_KEY, food).apply();
-    }
+
 
     @Override
     public void onStart() {

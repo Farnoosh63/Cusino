@@ -3,11 +3,16 @@ package com.epicodus.foodfinder.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
@@ -31,6 +36,8 @@ public class SearchActivity extends AppCompatActivity  {
     private FoodListAdapter mAdapter;
     private SharedPreferences mSharedPreferences;
     private String mRecentFoodSearched;
+    private SharedPreferences.Editor mEditor;
+
 
 
 
@@ -44,18 +51,18 @@ public class SearchActivity extends AppCompatActivity  {
 
         ButterKnife.bind(this);
 
+        Intent intent = getIntent();
+        String food = intent.getStringExtra("food");
+
+        getFoods(food);
+
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentFoodSearched = mSharedPreferences.getString(Constants.PREFERENCES_FOOD_KEY, null);
-//
+
         if (mRecentFoodSearched != null) {
             getFoods(mRecentFoodSearched);
         }
 
-
-//        Intent intent = getIntent();
-//        String food = intent.getStringExtra("food");
-
-//        getFoods(food);
     }
 
     private void getFoods(String food) {
@@ -95,6 +102,45 @@ public class SearchActivity extends AppCompatActivity  {
 
 
         });
+    }
+    private void addToSharedPreferences(String food) {
+        mEditor.putString(Constants.PREFERENCES_FOOD_KEY, food).apply();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                addToSharedPreferences(query);
+                getFoods(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+
+            return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 
 }
