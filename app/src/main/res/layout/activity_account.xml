@@ -61,6 +61,17 @@
             android:textColorHint="#bbbbbb"
             android:password="true"
             android:drawableLeft="@drawable/ic_lock_black_24dp"/>
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bottom_bg"
+            android:layout_marginTop="-2dp"
+            android:padding="10dp"
+            android:hint="Confirm Password"
+            android:textColorHint="#bbbbbb"
+            android:password="true"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"/>
         <Button
             android:id="@+id/btnSingUp"
             android:layout_width="match_parent"
