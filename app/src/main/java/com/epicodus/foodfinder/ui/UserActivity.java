@@ -47,10 +47,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         };
 
 
-//        Intent intent = getIntent();
-//        String name = intent.getStringExtra("name");
-//        mUserInfo.setText("Welcome "+ name);
-
         mFindFoodsButton.setOnClickListener(this);
 
 
