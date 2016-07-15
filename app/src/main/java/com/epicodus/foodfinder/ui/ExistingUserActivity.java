@@ -16,7 +16,7 @@ public class ExistingUserActivity extends AppCompatActivity {
 
     @Bind(R.id.password) EditText mPassword;
     @Bind(R.id.name) EditText mName;
-    @Bind(R.id.loginbutton) Button mLoginButton;
+    @Bind(R.id.btnSingIn) Button mLoginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

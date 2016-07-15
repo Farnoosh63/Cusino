@@ -24,7 +24,7 @@
         <activity
 
             android:name="com.epicodus.foodfinder.ui.AccountActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/NoActionBarTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.foodfinder.ui.MainActivity" />
@@ -38,7 +38,7 @@
         </activity>
         <activity
             android:name="com.epicodus.foodfinder.ui.ExistingUserActivity"
-            android:theme="@style/AppTheme">
+            android:theme="@style/NoActionBarTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.foodfinder.ui.ExistingUserActivity"></meta-data>

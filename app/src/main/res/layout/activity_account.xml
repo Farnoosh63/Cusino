@@ -8,56 +8,68 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
 
-    tools:context="com.epicodus.foodfinder.ui.AccountActivity">
+    tools:context="com.epicodus.foodfinder.ui.AccountActivity"
+    android:background="@color/bright_foreground_material_dark">
 
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Name"
-        android:ems="10"
-        android:id="@+id/name"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp" />
 
     <TextView
+        android:id="@+id/toolbar_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please fill up the form"
-        android:id="@+id/textView2"
+        android:background="@drawable/cusino"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp" />
+        android:layout_marginTop="53dp"/>
 
-    <EditText
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/password"
-        android:hint="Password"
-        android:layout_below="@+id/name"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        >
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="sign up"
-        android:id="@+id/submitbutton"
-        android:layout_gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/etUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_default_bg"
+            android:layout_marginTop="-2dp"
+            android:padding="10dp"
+            android:hint=" User Name"
+            android:textColorHint="#bbbbbb"
+            android:drawableLeft="@drawable/ic_person_add_black_24dp"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/email"
-        android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password"
-        android:hint="Email" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_top_bg"
+            android:padding="10dp"
+            android:hint=" Email"
+            android:textColorHint="#bbbbbb"
+            android:drawableLeft="@drawable/ic_email_black_24dp"/>
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bottom_bg"
+            android:layout_marginTop="-2dp"
+            android:padding="10dp"
+            android:hint="Password"
+            android:textColorHint="#bbbbbb"
+            android:password="true"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"/>
+        <Button
+            android:id="@+id/btnSingUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_margin="4dp"
+            android:text="Sign Up"
+            style="@style/DefaultButtonText"
+            android:background="@drawable/button_default_bg"
+            />
+    </LinearLayout>
 </RelativeLayout>

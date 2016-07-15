@@ -13,10 +13,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class AccountActivity extends AppCompatActivity {
-    @Bind(R.id.name) EditText mName;
+    @Bind(R.id.etUserName) EditText mName;
     @Bind(R.id.password) EditText mPassword;
     @Bind(R.id.email) EditText mEmail;
-    @Bind(R.id.submitbutton) Button mSubmitButton;
+    @Bind(R.id.btnSingUp) Button mSubmitButton;
 
 
     @Override
