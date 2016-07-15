@@ -1,5 +1,6 @@
 package com.epicodus.foodfinder.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +26,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
+
 
 
 
@@ -50,6 +54,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         mSubmitButton.setOnClickListener(this);
         createAuthStateListener();
+        createAuthProgressDialog();
     }
 
 
@@ -70,21 +75,29 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         boolean validPassword = isValidPassword(password, confirmPassword);
         if(!validEmail || !validName || !validPassword) return;
 
+        mAuthProgressDialog.show();
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+
+                        mAuthProgressDialog.dismiss();
+
                         if (task.isSuccessful()) {
                             Log.d("Task.isSuccessful", "Authentication successful");
+
+
                         } else {
                             Toast.makeText(AccountActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
+
                 });
 
-     }
-
+    }
+    
 
 
     private boolean isValidEmail(String email) {
@@ -151,6 +164,16 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating...");
+        mAuthProgressDialog.setCancelable(false);
+    }
+
+
+    
 }
 
 
