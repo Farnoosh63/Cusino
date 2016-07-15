@@ -94,11 +94,15 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        String foodName = mSearchFood.getText().toString();
-        addToSharedPreferences(foodName);
-        Intent intent = new Intent(UserActivity.this, SearchActivity.class);
-//        intent.putExtra("food", foodName);
-        startActivity(intent);
+        if (v == mFindFoodsButton){
+            String foodName = mSearchFood.getText().toString();
+            if (!(foodName).equals("")){
+                addToSharedPreferences(foodName);
+            }
+            Intent intent = new Intent(UserActivity.this, SearchActivity.class);
+            startActivity(intent);
+        }
+
     }
 
     private void addToSharedPreferences(String food) {

@@ -46,13 +46,16 @@ public class SearchActivity extends AppCompatActivity  {
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentFoodSearched = mSharedPreferences.getString(Constants.PREFERENCES_FOOD_KEY, null);
-        Log.d("RECENTFOOD", mRecentFoodSearched);
+//
+        if (mRecentFoodSearched != null) {
+            getFoods(mRecentFoodSearched);
+        }
 
 
-        Intent intent = getIntent();
-        String food = intent.getStringExtra("food");
+//        Intent intent = getIntent();
+//        String food = intent.getStringExtra("food");
 
-        getFoods(food);
+//        getFoods(food);
     }
 
     private void getFoods(String food) {
