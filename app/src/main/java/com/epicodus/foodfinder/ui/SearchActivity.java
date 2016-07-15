@@ -1,11 +1,15 @@
 package com.epicodus.foodfinder.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
+import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.adapter.FoodListAdapter;
 import com.epicodus.foodfinder.models.Food;
@@ -21,9 +25,15 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity  {
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+
     private FoodListAdapter mAdapter;
+    private SharedPreferences mSharedPreferences;
+    private String mRecentFoodSearched;
+
+
+
     public ArrayList<Food> mFoods = new ArrayList<>();
 
 
@@ -33,6 +43,11 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
 
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentFoodSearched = mSharedPreferences.getString(Constants.PREFERENCES_FOOD_KEY, null);
+        Log.d("RECENTFOOD", mRecentFoodSearched);
+
 
         Intent intent = getIntent();
         String food = intent.getStringExtra("food");
@@ -78,5 +93,6 @@ public class SearchActivity extends AppCompatActivity {
 
         });
     }
+
 }
 
