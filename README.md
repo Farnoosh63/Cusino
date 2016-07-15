@@ -1,4 +1,4 @@
-# FoodFinder ![foodfinder](https://maxcdn.icons8.com/iOS7/PNG/50/Ecommerce/food-50.png)
+# Cusino ![foodfinder](https://maxcdn.icons8.com/iOS7/PNG/50/Ecommerce/food-50.png)
 
 
 > **By Farnoosh Johnson**
@@ -11,7 +11,7 @@
 ## __Description__
 
 
-######  FoodFinder is an Android application that markets mobile app, which allow user to search by any type of food or ingredients and find their desired recipe.
+######  Cusino is an Android application that markets mobile app, which allow user to search by any type of food or ingredients and find their desired recipe.
 
 
 ## Known Bugs
