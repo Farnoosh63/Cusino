@@ -27,6 +27,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private ProgressDialog mAuthProgressDialog;
+    private String mUserName;
+
 
 
 
@@ -65,13 +67,13 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     private void createNewUser() {
-        final String name = mName.getText().toString().trim();
+        mUserName = mName.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         String confirmPassword = mConfirmPassword.getText().toString().trim();
         final String email = mEmail.getText().toString().trim();
 
         boolean validEmail = isValidEmail(email);
-        boolean validName = isValidName(name);
+        boolean validName = isValidName(mUserName);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if(!validEmail || !validName || !validPassword) return;
 
@@ -87,6 +89,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                         if (task.isSuccessful()) {
                             Log.d("Task.isSuccessful", "Authentication successful");
 
+                            createFirebaseUserProfile(task.getResult().getUser());
 
                         } else {
                             Toast.makeText(AccountActivity.this, "Authentication failed.",
@@ -172,7 +175,24 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         mAuthProgressDialog.setCancelable(false);
     }
 
+    private void createFirebaseUserProfile(final FirebaseUser user) {
 
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mUserName)
+                .build();
+
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d("UserName", user.getDisplayName());
+                        }
+                    }
+
+                });
+    }
     
 }
 
