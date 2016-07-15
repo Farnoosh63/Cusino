@@ -33,7 +33,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.userinfo) TextView mUserInfo;
     @Bind(R.id.findFoodsButton) Button mFindFoodsButton;
-    @Bind(R.id.searchFood) EditText mSearchFood;
 
 
     @Override
