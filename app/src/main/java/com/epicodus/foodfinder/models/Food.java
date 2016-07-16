@@ -1,11 +1,16 @@
 package com.epicodus.foodfinder.models;
 
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Food {
     private String mTitle;
     private String mIngredients;
     private String mLink;
     private String mImage;
+
+    public Food() {}
 
     public Food(String title, String ingredients, String link, String image){
         this.mTitle = title;

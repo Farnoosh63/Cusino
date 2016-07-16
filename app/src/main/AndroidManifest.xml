@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.epicodus.foodfinder">
-
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,40 +10,32 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name="com.epicodus.foodfinder.ui.MainActivity"
-                  android:theme="@style/NoActionBarTheme">
-
+        <activity
+            android:name=".ui.MainActivity"
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
+            android:name=".ui.AccountActivity"
+            android:theme="@style/NoActionBarTheme"></activity>
+        <activity android:name=".ui.UserActivity">
 
-            android:name="com.epicodus.foodfinder.ui.AccountActivity"
-            android:theme="@style/NoActionBarTheme">
-
-        </activity>
-        <activity android:name="com.epicodus.foodfinder.ui.UserActivity">
-            <!--android:theme="@style/AppTheme">-->
-            <!--<meta-data-->
-                <!--android:name="android.support.PARENT_ACTIVITY"-->
-                <!--android:value="com.epicodus.foodfinder.ui.MainActivity">-->
-            <!--</meta-data>-->
+            <!-- android:theme="@style/AppTheme"> -->
+            <!-- <meta-data -->
+            <!-- android:name="android.support.PARENT_ACTIVITY" -->
+            <!-- android:value="com.epicodus.foodfinder.ui.MainActivity"> -->
+            <!-- </meta-data> -->
 
         </activity>
         <activity
-            android:name="com.epicodus.foodfinder.ui.ExistingUserActivity"
-            android:theme="@style/NoActionBarTheme">
-
-        </activity>
-        <activity android:name="com.epicodus.foodfinder.ui.SearchActivity">
-
-        </activity>
-
+            android:name=".ui.ExistingUserActivity"
+            android:theme="@style/NoActionBarTheme"></activity>
+        <activity android:name=".ui.SearchActivity"></activity>
+        <activity android:name=".ui.FoodDetailActivity"></activity>
     </application>
 
 </manifest>

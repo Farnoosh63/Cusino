@@ -1,6 +1,7 @@
 package com.epicodus.foodfinder.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,8 +11,11 @@ import android.widget.TextView;
 
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.models.Food;
+import com.epicodus.foodfinder.ui.FoodDetailActivity;
 import com.squareup.picasso.Picasso;
 
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -48,7 +52,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
         return mFoods.size();
     }
 
-    public class FoodViewHolder extends RecyclerView.ViewHolder {
+    public class FoodViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.foodNameTextView)
         TextView mFoodNameTextView;
         @Bind(R.id.ingredientsTextView)
@@ -62,6 +66,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindFood(Food food) {
@@ -84,6 +89,15 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             }
 
 
+        }
+
+        @Override
+        public void onClick(View v){
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, FoodDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("foods", Parcels.wrap(mFoods));
+            mContext.startActivity(intent);
         }
 
     }
