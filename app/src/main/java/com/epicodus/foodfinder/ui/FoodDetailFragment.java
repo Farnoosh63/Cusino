@@ -2,6 +2,8 @@ package com.epicodus.foodfinder.ui;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -20,16 +22,18 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 
-public class FoodDetailFragment extends Fragment {
+public class FoodDetailFragment extends Fragment implements View.OnClickListener {
     @Bind(R.id.foodImageView)
     ImageView mImageLabel;
     @Bind(R.id.foodNameTextView)
     TextView mFoodNameTextView;
-    @Bind(R.id.ingredientsTextView) TextView mIngredientsTextView;
+    @Bind(R.id.ingredientsTextView)
+    TextView mIngredientsTextView;
+    @Bind(R.id.websiteTextView)
+    TextView mWebsiteLabel;
 
     private Food mFood;
     private Context mContext;
-
 
 
     public static FoodDetailFragment newInstance(Food food) {
@@ -53,8 +57,8 @@ public class FoodDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_food_detail, container, false);
         ButterKnife.bind(this, view);
-//        Picasso.with(view.getContext()).load(mFood.getImage()).into(mImageLabel);
 
+        mWebsiteLabel.setOnClickListener(this);
         mFoodNameTextView.setText(mFood.getTitle());
         mIngredientsTextView.setText(mFood.getIngredients());
         if (mFood.getImage().isEmpty()) {
@@ -64,7 +68,7 @@ public class FoodDetailFragment extends Fragment {
                     .centerCrop()
                     .into(mImageLabel);
 
-        } else{
+        } else {
             Picasso.with(mContext)
                     .load(mFood.getImage())
                     .resize(400, 200)
@@ -72,6 +76,18 @@ public class FoodDetailFragment extends Fragment {
                     .into(mImageLabel);
         }
         return view;
+
     }
 
+
+
+
+    @Override
+    public void onClick(View view) {
+        if (view == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mFood.getLink()));
+            startActivity(webIntent);
+        }
+    }
 }

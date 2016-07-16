@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="View on Yelp"
+                android:text="How to make this recipe?"
                 android:id="@+id/websiteTextView"
                 android:drawableLeft="@drawable/ic_email_black_24dp"
                 android:drawablePadding="4dp"
