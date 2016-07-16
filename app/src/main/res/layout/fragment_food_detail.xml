@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="416dp"
         android:orientation="horizontal"
         android:padding="5dip" >
 
@@ -33,7 +33,7 @@
             android:text="Food Name"
             android:textColor="#040404"
             android:typeface="sans"
-            android:textSize="15dip"
+            android:textSize="25dip"
             android:textStyle="bold"/>
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/foodNameTextView"
             android:textColor="#343434"
-            android:textSize="10dip"
+            android:textSize="20dip"
             android:layout_marginTop="1dip"
             android:layout_toRightOf="@+id/thumbnail"
             android:text="ingredients" />
@@ -52,13 +52,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp">
+        android:layout_marginTop="180dp">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_above="@+id/saveFoodButton"
