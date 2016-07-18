@@ -9,11 +9,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.models.Food;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -23,17 +28,17 @@ import butterknife.ButterKnife;
 
 
 public class FoodDetailFragment extends Fragment implements View.OnClickListener {
-    @Bind(R.id.foodImageView)
-    ImageView mImageLabel;
-    @Bind(R.id.foodNameTextView)
-    TextView mFoodNameTextView;
-    @Bind(R.id.ingredientsTextView)
-    TextView mIngredientsTextView;
-    @Bind(R.id.websiteTextView)
-    TextView mWebsiteLabel;
+    @Bind(R.id.foodImageView) ImageView mImageLabel;
+    @Bind(R.id.foodNameTextView) TextView mFoodNameTextView;
+    @Bind(R.id.ingredientsTextView) TextView mIngredientsTextView;
+    @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
+    @Bind(R.id.saveFoodButton)
+    Button mSaveFoodButton;
+
 
     private Food mFood;
     private Context mContext;
+    private DatabaseReference mSavedRecipe;
 
 
     public static FoodDetailFragment newInstance(Food food) {
@@ -58,7 +63,9 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
         View view = inflater.inflate(R.layout.fragment_food_detail, container, false);
         ButterKnife.bind(this, view);
 
+
         mWebsiteLabel.setOnClickListener(this);
+        mSaveFoodButton.setOnClickListener(this);
         mFoodNameTextView.setText(mFood.getTitle());
         mIngredientsTextView.setText(mFood.getIngredients());
         if (mFood.getImage().isEmpty()) {
@@ -88,6 +95,11 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
             Intent webIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse(mFood.getLink()));
             startActivity(webIntent);
+        }
+        if(view == mSaveFoodButton){
+            mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE);
+            mSavedRecipe.push().setValue(mFood);
+            Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
         }
     }
 }
