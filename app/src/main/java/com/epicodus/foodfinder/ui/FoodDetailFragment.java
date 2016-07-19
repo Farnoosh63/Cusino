@@ -17,6 +17,8 @@ import android.widget.Toast;
 import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.models.Food;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -100,16 +102,20 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
             startActivity(webIntent);
         }
         if(view == mSaveFoodButton){
-            mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE).push();
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE).child(uid);
             if (mFood.getImage().isEmpty()) {
                 String image = "http://seo.tehnoseo.ru/img/not-available.png";
                 mFood.setImage(image);
 
-
             }
-            String pushId = mSavedRecipe.getKey();
+            DatabaseReference pushRef = mSavedRecipe.push();
+            String pushId = pushRef.getKey();
             mFood.setPushId(pushId);
-            mSavedRecipe.setValue(mFood);
+
+            pushRef.setValue(mFood);
             Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
         }
     }

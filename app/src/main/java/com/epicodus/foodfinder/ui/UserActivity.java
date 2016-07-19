@@ -63,9 +63,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
         mAllPostReference = FirebaseDatabase
                 .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE);
+                .getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE)
+                .child(uid);
 
         setUpFirebaseAdapter();
         mFindFoodsButton.setOnClickListener(this);

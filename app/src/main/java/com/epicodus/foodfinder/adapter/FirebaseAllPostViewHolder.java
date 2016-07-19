@@ -25,7 +25,6 @@ public class FirebaseAllPostViewHolder extends RecyclerView.ViewHolder {
 
 
     public void bindAllPost(Food food) {
-        Log.d("Food in binallpost", food.getTitle() + " " + food.getIngredients());
         ImageView foodImage = (ImageView) mView.findViewById(R.id.foodImage);
         TextView foodName = (TextView) mView.findViewById(R.id.foodName);
         TextView ingredients = (TextView) mView.findViewById(R.id.ingredients);
