@@ -135,12 +135,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
             Intent intent = new Intent(UserActivity.this, SearchActivity.class);
             startActivity(intent);
-            finish();
+//            finish();
         }
         if(v == mSeeAllRecipeButton){
             Intent intent = new Intent(UserActivity.this, AllSavedRecipes.class);
             startActivity(intent);
-            finish();
+            //finish();
         }
 
     }
