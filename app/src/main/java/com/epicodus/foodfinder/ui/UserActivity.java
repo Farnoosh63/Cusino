@@ -41,6 +41,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.userinfo) TextView mUserInfo;
     @Bind(R.id.findFoodsButton) Button mFindFoodsButton;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    @Bind(R.id.userName) TextView mUserName;
 
 
 
@@ -63,8 +64,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
+
+        String userName = user.getDisplayName();
+        mUserName.setText(userName + "'s saved Recipes:");
 
         mAllPostReference = FirebaseDatabase
                 .getInstance()
