@@ -23,6 +23,9 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
@@ -98,6 +101,20 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
         }
         if(view == mSaveFoodButton){
             mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE);
+//            if (mFood.getImage().isEmpty()) {
+//                DatabaseReference imageRef = mSavedRecipe.child(mSavedRecipe.getKey());
+
+//                Map<String, Object> image = new HashMap<String, Object>();
+//                image.put("image", "http://seo.tehnoseo.ru/img/not-available.png");
+//                imageRef.updateChildren(image);
+//                String image = "http://seo.tehnoseo.ru/img/not-available.png";
+//                mSavedRecipe.child("image").setValue(image);
+//            DatabaseReference newImage = FirebaseDatabase.getInstance()
+//                    .getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE)
+//                    .child();
+
+
+//            }
             mSavedRecipe.push().setValue(mFood);
             Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
         }

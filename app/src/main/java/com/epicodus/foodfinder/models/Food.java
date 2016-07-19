@@ -9,6 +9,7 @@ public class Food {
     private String mIngredients;
     private String mLink;
     private String mImage;
+    private String pushId;
 
     public Food() {}
 
@@ -30,6 +31,14 @@ public class Food {
     }
     public String getImage(){
         return mImage;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }
