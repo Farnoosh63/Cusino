@@ -37,13 +37,5 @@ public class FirebaseAllPostViewHolder extends RecyclerView.ViewHolder {
                 .centerCrop()
                 .into(foodImage);
 
-//        mView.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(mContext, Cha)
-//                Intent.addExtra(food);
-//
-//            }
-//        });
     }
 }

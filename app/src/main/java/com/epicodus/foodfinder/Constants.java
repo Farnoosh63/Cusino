@@ -8,4 +8,5 @@ public class Constants {
     public static final String PREFERENCES_FOOD_KEY = "food";
 
     public static final String FIREBASE_CHILD_SAVED_RECIPE = "savedRecipe";
+    public static final String FIREBASE_CHILD_SAVED_RECIPE_2 = "savedRecipe2";
 }

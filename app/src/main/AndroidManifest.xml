@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".ui.AccountActivity"
-            android:theme="@style/NoActionBarTheme"></activity>
+            android:theme="@style/NoActionBarTheme" />
         <activity android:name=".ui.UserActivity">
 
             <!-- android:theme="@style/AppTheme"> -->
@@ -33,9 +33,10 @@
         </activity>
         <activity
             android:name=".ui.ExistingUserActivity"
-            android:theme="@style/NoActionBarTheme"></activity>
-        <activity android:name=".ui.SearchActivity"></activity>
-        <activity android:name=".ui.FoodDetailActivity"></activity>
+            android:theme="@style/NoActionBarTheme" />
+        <activity android:name=".ui.SearchActivity" />
+        <activity android:name=".ui.FoodDetailActivity" />
+        <activity android:name=".ui.AllSavedRecipes"></activity>
     </application>
 
 </manifest>

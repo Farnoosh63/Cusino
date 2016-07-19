@@ -106,16 +106,22 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
             String uid = user.getUid();
 
             mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE).child(uid);
+            DatabaseReference mSavedRecipe2 = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE_2);
+
             if (mFood.getImage().isEmpty()) {
                 String image = "http://seo.tehnoseo.ru/img/not-available.png";
                 mFood.setImage(image);
 
             }
             DatabaseReference pushRef = mSavedRecipe.push();
+            DatabaseReference pushRef2 = mSavedRecipe2.push();
             String pushId = pushRef.getKey();
+            String pushId2 = pushRef2.getKey();
             mFood.setPushId(pushId);
 
             pushRef.setValue(mFood);
+            pushRef2.setValue(mFood);
+
             Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
         }
     }

@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,7 +41,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.findFoodsButton) Button mFindFoodsButton;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     @Bind(R.id.userName) TextView mUserName;
-
+    @Bind(R.id.seeAllRecipeButton) Button mSeeAllRecipeButton;
 
 
     @Override
@@ -78,13 +77,13 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         setUpFirebaseAdapter();
         mFindFoodsButton.setOnClickListener(this);
-
+        mSeeAllRecipeButton.setOnClickListener(this);
 
 
     }
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Food, FirebaseAllPostViewHolder>
-                (Food.class, R.layout.allpost_list, FirebaseAllPostViewHolder.class, mAllPostReference) {
+                (Food.class, R.layout.user_saved_recipe_list, FirebaseAllPostViewHolder.class, mAllPostReference) {
             @Override
             protected void populateViewHolder(FirebaseAllPostViewHolder viewHolder,Food model, int position) {
                 viewHolder.bindAllPost(model);
@@ -136,6 +135,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
             Intent intent = new Intent(UserActivity.this, SearchActivity.class);
             startActivity(intent);
+            finish();
+        }
+        if(v == mSeeAllRecipeButton){
+            Intent intent = new Intent(UserActivity.this, AllSavedRecipes.class);
+            startActivity(intent);
+            finish();
         }
 
     }

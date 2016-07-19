@@ -36,13 +36,26 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="All saved recipes"
+        android:id="@+id/seeAllRecipeButton"
+        android:layout_below="@+id/recyclerView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/findFoodsButton"
+        android:textSize="12dp" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="search for recipe idea"
         android:id="@+id/findFoodsButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/userinfo"
+        android:layout_toEndOf="@+id/userinfo"
+        android:textSize="12dp" />
 
 
 </RelativeLayout>
