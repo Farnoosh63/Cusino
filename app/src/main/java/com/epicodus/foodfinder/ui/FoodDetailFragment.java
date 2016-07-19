@@ -100,22 +100,16 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
             startActivity(webIntent);
         }
         if(view == mSaveFoodButton){
-            mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE);
-//            if (mFood.getImage().isEmpty()) {
-//                DatabaseReference imageRef = mSavedRecipe.child(mSavedRecipe.getKey());
-
-//                Map<String, Object> image = new HashMap<String, Object>();
-//                image.put("image", "http://seo.tehnoseo.ru/img/not-available.png");
-//                imageRef.updateChildren(image);
-//                String image = "http://seo.tehnoseo.ru/img/not-available.png";
-//                mSavedRecipe.child("image").setValue(image);
-//            DatabaseReference newImage = FirebaseDatabase.getInstance()
-//                    .getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE)
-//                    .child();
+            mSavedRecipe = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE).push();
+            if (mFood.getImage().isEmpty()) {
+                String image = "http://seo.tehnoseo.ru/img/not-available.png";
+                mFood.setImage(image);
 
 
-//            }
-            mSavedRecipe.push().setValue(mFood);
+            }
+            String pushId = mSavedRecipe.getKey();
+            mFood.setPushId(pushId);
+            mSavedRecipe.setValue(mFood);
             Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
         }
     }
