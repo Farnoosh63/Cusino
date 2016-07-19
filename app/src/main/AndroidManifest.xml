@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.epicodus.foodfinder.ui.MainActivity"
             android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.AccountActivity"
+            android:name="com.epicodus.foodfinder.ui.AccountActivity"
             android:theme="@style/NoActionBarTheme" />
-        <activity android:name=".ui.UserActivity">
+        <activity android:name="com.epicodus.foodfinder.ui.UserActivity">
 
             <!-- android:theme="@style/AppTheme"> -->
             <!-- <meta-data -->
@@ -31,12 +31,21 @@
             <!-- </meta-data> -->
 
         </activity>
+
         <activity
             android:name=".ui.ExistingUserActivity"
             android:theme="@style/NoActionBarTheme" />
         <activity android:name=".ui.SearchActivity" />
         <activity android:name=".ui.FoodDetailActivity" />
-        <activity android:name=".ui.AllSavedRecipes"></activity>
+
+        <activity
+            android:name=".ui.AllSavedRecipes">
+             <!--<meta-data-->
+                <!--android:name="android.support.PARENT_ACTIVITY"-->
+                <!--android:value="com.epicodus.foodfinder.ui.UserActivity">-->
+             <!--</meta-data>-->
+        </activity>
+
     </application>
 
 </manifest>

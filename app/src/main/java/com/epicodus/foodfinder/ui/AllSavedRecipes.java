@@ -29,7 +29,6 @@ public class AllSavedRecipes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_saved_recipes);
-
         ButterKnife.bind(this);
 
         mAllPostReference = FirebaseDatabase

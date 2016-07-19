@@ -11,7 +11,9 @@
 ## __Description__
 
 
-######  Cusino is an Android application that markets mobile app, which allow user to search by any type of food or ingredients and find their desired recipe.
+######  Cusino is an Android application that markets mobile app, which allow user to search recipe by any type of food or ingredients,
+add their favorite recipes to their private account as well as accessing the full cooking instruction of the recipe by redirecting to the another application.
+User also have access to see all the favorite recipes by other user.
 
 
 ## Known Bugs
