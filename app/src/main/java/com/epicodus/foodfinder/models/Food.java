@@ -5,12 +5,12 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Food {
-    private String title;
-    private String ingredients;
-    private String link;
+    String title;
+    String ingredients;
+    String link;
 
-    private String image;
-    private String pushId;
+    String image;
+    String pushId;
 
     public Food() {}
 

@@ -7,25 +7,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.adapter.FirebaseAllPostViewHolder;
 import com.epicodus.foodfinder.models.Food;
+import com.epicodus.foodfinder.services.YelpService;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.IOException;
+
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class UserActivity extends AppCompatActivity implements View.OnClickListener  {
 
@@ -42,6 +51,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     @Bind(R.id.userName) TextView mUserName;
     @Bind(R.id.seeAllRecipeButton) Button mSeeAllRecipeButton;
+    @Bind(R.id.findRestaurantsButton) Button mFindRestaurantButton;
+    @Bind(R.id.foodTypeEditText)
+    EditText mFoodTypeEditText;
+
 
 
     @Override
@@ -78,6 +91,9 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         setUpFirebaseAdapter();
         mFindFoodsButton.setOnClickListener(this);
         mSeeAllRecipeButton.setOnClickListener(this);
+        mFindRestaurantButton.setOnClickListener(this);
+//        getRestaurants(foodType);
+
 
 
     }
@@ -91,6 +107,8 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
         mRecyclerView.setHasFixedSize(true);
+
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
     }
@@ -142,6 +160,14 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             //finish();
         }
+        if(v == mFindRestaurantButton){
+            String foodType = mFoodTypeEditText.getText().toString();
+            Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
+            intent.putExtra("foodType", foodType);
+            Log.d("foodTypeUserActivity", foodType);
+            startActivity(intent);
+
+        }
 
     }
 
@@ -160,4 +186,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+
 }
