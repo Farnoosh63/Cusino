@@ -37,7 +37,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.foodfinder.ui.UserActivity" />
         </activity>
-        <activity android:name=".ui.SearchRestaurantActivity"></activity>
+        <activity android:name=".ui.SearchRestaurantActivity" />
+        <activity android:name=".ui.RestaurantDetailActivity"></activity>
     </application>
 
 </manifest>
