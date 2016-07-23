@@ -16,6 +16,9 @@ public class Restaurant {
     double mLatitude;
     double mLongitude;
 
+
+    private String pushId;
+
     public Restaurant() {}
 
     public Restaurant(String name, String phone, String website,
@@ -66,6 +69,14 @@ public class Restaurant {
     }
     public double getLongitude() {
         return mLongitude;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }
 

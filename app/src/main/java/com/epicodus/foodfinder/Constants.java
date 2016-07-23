@@ -20,4 +20,6 @@ public class Constants {
 
     public static final String PREFERENCES_RESTAURANT_KEY = "RESTAURANT";
 
+    public static final String FIREBASE_CHILD_SAVED_RESTAURANT = "savedRestaurant";
+
 }
