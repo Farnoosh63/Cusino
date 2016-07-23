@@ -6,15 +6,15 @@ import java.util.ArrayList;
 
 @Parcel
 public class Restaurant {
-     String mName;
-     String mPhone;
-     String mWebsite;
-     double mRating;
-     String mImageUrl;
-     ArrayList<String> mAddress = new ArrayList<>();
-     ArrayList<String> mCategories = new ArrayList<>();
-    double mLatitude;
-    double mLongitude;
+     String name;
+     String phone;
+     String website;
+     double rating;
+     String imageUrl;
+     ArrayList<String> address = new ArrayList<>();
+     ArrayList<String> categories = new ArrayList<>();
+    double latitude;
+    double longitude;
 
 
     private String pushId;
@@ -24,51 +24,51 @@ public class Restaurant {
     public Restaurant(String name, String phone, String website,
                       double rating, String imageUrl, ArrayList<String> address,
                       double latitude, double longitude, ArrayList<String> categories) {
-        this.mName = name;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mRating = rating;
-        this.mImageUrl = imageUrl;
-        this.mAddress = address;
-        this.mCategories = categories;
-        this.mLatitude = latitude;
-        this.mLongitude = longitude;
+        this.name = name;
+        this.phone = phone;
+        this.website = website;
+        this.rating = rating;
+        this.imageUrl = imageUrl;
+        this.address = address;
+        this.categories = categories;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
 
     public String getWebsite() {
-        return  mWebsite;
+        return  website;
     }
 
     public double getRating() {
-        return mRating;
+        return rating;
     }
 
     public String getImageUrl(){
-        return mImageUrl;
+        return imageUrl;
     }
 
     public ArrayList<String> getAddress() {
-        return mAddress;
+        return address;
     }
 
 
     public ArrayList<String> getCategories() {
-        return mCategories;
+        return categories;
     }
 
     public double getLatitude() {
-        return mLatitude;
+        return latitude;
     }
     public double getLongitude() {
-        return mLongitude;
+        return longitude;
     }
 
     public String getPushId() {
