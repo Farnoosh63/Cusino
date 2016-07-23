@@ -2,41 +2,37 @@ package com.epicodus.foodfinder.ui;
 
 import android.content.Intent;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.TextView;
 
 import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.adapter.FirebaseAllPostViewHolder;
 import com.epicodus.foodfinder.models.Food;
-import com.epicodus.foodfinder.services.YelpService;
+
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.io.IOException;
+
 
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Response;
 
 public class UserActivity extends AppCompatActivity implements View.OnClickListener  {
 
@@ -44,8 +40,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mAllPostReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
-    private SharedPreferences.Editor mEditor;
-    private SharedPreferences mSharedPreferences;
+
 
 
 
@@ -55,8 +50,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.userName) TextView mUserName;
     @Bind(R.id.seeAllRecipeButton) Button mSeeAllRecipeButton;
     @Bind(R.id.findRestaurantsButton) Button mFindRestaurantButton;
-    @Bind(R.id.foodTypeEditText)
-    EditText mFoodTypeEditText;
+
 
 
 
@@ -66,8 +60,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_user);
         ButterKnife.bind(this);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -96,7 +88,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         mFindFoodsButton.setOnClickListener(this);
         mSeeAllRecipeButton.setOnClickListener(this);
         mFindRestaurantButton.setOnClickListener(this);
-//        getRestaurants(foodType);
 
 
 
@@ -165,14 +156,9 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             //finish();
         }
         if(v == mFindRestaurantButton){
-            String foodType = mFoodTypeEditText.getText().toString();
-            if (!(foodType).equals("")) {
-                addToSharedPreferences(foodType);
-            }
+
 
             Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
-//            intent.putExtra("foodType", foodType);
-            Log.d("foodTypeUserActivity", foodType);
             startActivity(intent);
 
         }
@@ -194,10 +180,5 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-
-    private void addToSharedPreferences(String foodType) {
-        mEditor.putString(Constants.PREFERENCES_RESTAURANT_KEY, foodType).apply();
-         }
-
 
 }

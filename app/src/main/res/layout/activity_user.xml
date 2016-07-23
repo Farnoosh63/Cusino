@@ -64,16 +64,6 @@
         android:layout_alignParentStart="true"
         android:layout_toRightOf="@+id/seeAllRecipeButton"/>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/foodTypeEditText"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/seeAllRecipeButton"
-        android:layout_toStartOf="@+id/seeAllRecipeButton"
-        android:layout_marginRight="48dp"
-        android:layout_marginEnd="48dp" />
-
 
 </RelativeLayout>
 
