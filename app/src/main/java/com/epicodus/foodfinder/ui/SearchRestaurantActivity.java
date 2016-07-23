@@ -1,6 +1,8 @@
 package com.epicodus.foodfinder.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
@@ -16,6 +18,7 @@ import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
 
+import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.adapter.RestaurantListAdapter;
 import com.epicodus.foodfinder.models.Restaurant;
@@ -31,11 +34,8 @@ public class SearchRestaurantActivity extends AppCompatActivity {
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
     private RestaurantListAdapter mAdapter;
-
-//    @Bind(R.id.locationTextView)
-//    TextView mLocationTextView;
-//    @Bind(R.id.listView)
-//    ListView mListView;
+    private SharedPreferences mSharedPreferences;
+    private String mRecentRestaurantSearched;
 
     public ArrayList<Restaurant> mRestaurants = new ArrayList<>();
 
@@ -46,6 +46,13 @@ public class SearchRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_restaurant);
 
         ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentRestaurantSearched = mSharedPreferences.getString(Constants.PREFERENCES_RESTAURANT_KEY, null);
+        Log.d("RECENTRESTAURANT", mRecentRestaurantSearched);
+        if (mRecentRestaurantSearched != null) {
+             getRestaurants(mRecentRestaurantSearched);
+        }
 
         Intent intent = getIntent();
         String foodType = intent.getStringExtra("foodType");

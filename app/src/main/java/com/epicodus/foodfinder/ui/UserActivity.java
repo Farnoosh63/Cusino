@@ -2,6 +2,8 @@ package com.epicodus.foodfinder.ui;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,7 +44,8 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mAllPostReference;
     private FirebaseRecyclerAdapter mFirebaseAdapter;
-
+    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
 
 
 
@@ -63,7 +66,8 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_user);
         ButterKnife.bind(this);
 
-
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -162,8 +166,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(v == mFindRestaurantButton){
             String foodType = mFoodTypeEditText.getText().toString();
+            if (!(foodType).equals("")) {
+                addToSharedPreferences(foodType);
+            }
+
             Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
-            intent.putExtra("foodType", foodType);
+//            intent.putExtra("foodType", foodType);
             Log.d("foodTypeUserActivity", foodType);
             startActivity(intent);
 
@@ -186,6 +194,10 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
+    private void addToSharedPreferences(String foodType) {
+        mEditor.putString(Constants.PREFERENCES_RESTAURANT_KEY, foodType).apply();
+         }
 
 
 }
