@@ -63,7 +63,20 @@
             android:layout_above="@+id/saveFoodButton"
             android:paddingLeft="30dp"
             android:paddingTop="20dp"
-            android:paddingRight="30dp">
+            android:paddingRight="30dp"
+            android:id="@+id/linearLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send it to a friend"
+                android:id="@+id/messageToFriend"
+                android:drawableLeft="@drawable/ic_email_black_24dp"
+                android:drawablePadding="4dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:gravity="center" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -86,6 +99,7 @@
             android:layout_alignParentBottom="true"
             android:background="@color/colorAccent"
             android:textSize="15sp" />
-        </RelativeLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>

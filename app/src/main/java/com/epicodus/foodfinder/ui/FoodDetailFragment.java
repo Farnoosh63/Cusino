@@ -3,6 +3,8 @@ package com.epicodus.foodfinder.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,7 +27,12 @@ import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import butterknife.Bind;
@@ -33,12 +40,17 @@ import butterknife.ButterKnife;
 
 
 public class FoodDetailFragment extends Fragment implements View.OnClickListener {
-    @Bind(R.id.foodImageView) ImageView mImageLabel;
-    @Bind(R.id.foodNameTextView) TextView mFoodNameTextView;
-    @Bind(R.id.ingredientsTextView) TextView mIngredientsTextView;
-    @Bind(R.id.websiteTextView) TextView mWebsiteLabel;
+    @Bind(R.id.foodImageView)
+    ImageView mImageLabel;
+    @Bind(R.id.foodNameTextView)
+    TextView mFoodNameTextView;
+    @Bind(R.id.ingredientsTextView)
+    TextView mIngredientsTextView;
+    @Bind(R.id.websiteTextView)
+    TextView mWebsiteLabel;
     @Bind(R.id.saveFoodButton)
     Button mSaveFoodButton;
+    @Bind(R.id.messageToFriend) TextView mMessageToFriend;
 
 
     private Food mFood;
@@ -70,6 +82,7 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
 
 
         mWebsiteLabel.setOnClickListener(this);
+        mMessageToFriend.setOnClickListener(this);
         mSaveFoodButton.setOnClickListener(this);
         mFoodNameTextView.setText(mFood.getTitle());
         mIngredientsTextView.setText(mFood.getIngredients());
@@ -92,16 +105,9 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
     }
 
 
-
-
     @Override
     public void onClick(View view) {
-        if (view == mWebsiteLabel) {
-            Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(mFood.getLink()));
-            startActivity(webIntent);
-        }
-        if(view == mSaveFoodButton){
+        if (view == mSaveFoodButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             String uid = user.getUid();
 
@@ -122,7 +128,20 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
             pushRef.setValue(mFood);
             pushRef2.setValue(mFood);
 
-            Toast.makeText(getContext(),"Saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+        if (view == mWebsiteLabel) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mFood.getLink()));
+            startActivity(webIntent);
+
+        }if (view == mMessageToFriend){
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setType("text/plain");
+            emailIntent.putExtra(Intent.EXTRA_TEXT , "Hey There! I am using Cusino app for Android. Check out this recipe: " +mFood.getTitle()+ " link: "+  mFood.getLink());
+            startActivity(emailIntent);
+
         }
     }
+
 }
