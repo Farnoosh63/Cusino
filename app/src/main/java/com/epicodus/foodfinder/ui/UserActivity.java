@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -37,7 +36,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import su.j2e.rvjoiner.JoinableAdapter;
-import su.j2e.rvjoiner.JoinableLayout;
 import su.j2e.rvjoiner.RvJoiner;
 
 public class UserActivity extends AppCompatActivity implements View.OnClickListener  {
@@ -119,7 +117,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
             mFirebaseAdapter2 = new FirebaseRecyclerAdapter<Restaurant, FirebaseUserRestaurantViewHolder>
-                    (Restaurant.class, R.layout.user_saved_restaruarnt_list, FirebaseUserRestaurantViewHolder.class, mUserRestaurantReference) {
+                    (Restaurant.class, R.layout.user_saved_restarurant_list, FirebaseUserRestaurantViewHolder.class, mUserRestaurantReference) {
 
 
                 @Override
@@ -142,7 +140,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 //        rvJoiner.add(new JoinableLayout(R.layout.user_saved_recipe_list));
         rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
 
-//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restaruarnt_list));
+//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restarurant_list));
         rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
 
         //set join adapter to your RecyclerView

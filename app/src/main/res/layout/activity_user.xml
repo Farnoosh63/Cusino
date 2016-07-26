@@ -30,18 +30,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"
-        android:layout_above="@+id/findFoodsButton"
-        android:layout_below="@+id/userName" />
+        android:layout_below="@+id/userName"
+        android:layout_above="@+id/seeAllRecipeButton" />
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All saved recipes"
+        android:text="All saved recipes and restaurants"
         android:id="@+id/seeAllRecipeButton"
         android:textSize="10dp"
-        android:layout_alignTop="@+id/findRestaurantsButton"
-        android:layout_centerHorizontal="true"/>
+        android:layout_above="@+id/findRestaurantsButton"
+        android:layout_centerHorizontal="true" />
 
 
     <Button
@@ -50,9 +50,9 @@
         android:text="search for recipe idea"
         android:id="@+id/findFoodsButton"
         android:textSize="10dp"
+        android:layout_toEndOf="@+id/userinfo"
         android:layout_alignParentBottom="true"
-        android:layout_toEndOf="@+id/seeAllRecipeButton"
-        android:layout_toRightOf="@+id/seeAllRecipeButton" />
+        android:layout_toRightOf="@+id/userinfo" />
 
     <Button
         android:layout_width="wrap_content"
@@ -60,10 +60,12 @@
         android:text="search for restaurant"
         android:id="@+id/findRestaurantsButton"
         android:textSize="10dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_toRightOf="@+id/seeAllRecipeButton"/>
+        android:layout_toRightOf="@+id/seeAllRecipeButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/findFoodsButton"
+        android:layout_toStartOf="@+id/findFoodsButton" />
 
 
 </RelativeLayout>

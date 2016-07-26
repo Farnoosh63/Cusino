@@ -107,16 +107,16 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
             String uid = user.getUid();
 
             mSavedRestaurant = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT).child(uid);
-//            DatabaseReference mSavedRestaurant2 = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT_2);
+            DatabaseReference mSavedRestaurant2 = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT_2);
 
             DatabaseReference pushRef = mSavedRestaurant.push();
-//            DatabaseReference pushRef2 = mSavedRestaurant2.push();
+            DatabaseReference pushRef2 = mSavedRestaurant2.push();
             String pushId = pushRef.getKey();
 //            String pushId2 = pushRef2.getKey();
             mRestaurant.setPushId(pushId);
 
             pushRef.setValue(mRestaurant);
-//            pushRef2.setValue(mRestaurant);
+            pushRef2.setValue(mRestaurant);
 
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
             Intent refresh = new Intent(this.getActivity(), UserActivity.class);
