@@ -97,10 +97,6 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
             startActivity(mapIntent);
         }
         if (v == mSaveRestaurantButton) {
-//            mSavedRestaurant = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT).push();
-//            String pushId = mSavedRestaurant.getKey();
-//            mRestaurant.setPushId(pushId);
-//            mSavedRestaurant.setValue(mRestaurant);
 
 
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -119,8 +115,8 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
             pushRef2.setValue(mRestaurant);
 
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-            Intent refresh = new Intent(this.getActivity(), UserActivity.class);
-            startActivity(refresh);
+//            Intent refresh = new Intent(this.getActivity(), UserActivity.class);
+//            startActivity(refresh);
         }
     }
 }

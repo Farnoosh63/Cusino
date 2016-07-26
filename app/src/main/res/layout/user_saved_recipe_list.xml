@@ -16,7 +16,6 @@
         <ImageView
             android:layout_width="50dip"
             android:layout_height="50dip"
-            android:background="@drawable/down"
             android:id="@+id/foodImage"
             android:scaleType="centerCrop"/>
     </LinearLayout>

@@ -1,10 +1,12 @@
 package com.epicodus.foodfinder.ui;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -53,47 +55,43 @@ public class AllSavedRecipes extends AppCompatActivity implements View.OnClickLi
         setUpFirebaseAdapter();
 
         mGoBackToFavoritesButton.setOnClickListener(this);
-
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter1 = new FirebaseRecyclerAdapter<Food, FirebaseAllPostViewHolder>
-                (Food.class, R.layout.user_saved_recipe_list, FirebaseAllPostViewHolder.class, mAllPostReference) {
-            @Override
-            protected void populateViewHolder(FirebaseAllPostViewHolder viewHolder, Food model, int position) {
-                viewHolder.bindAllPost(model);
+        RvJoiner rvJoiner = new RvJoiner();
 
-            }
-        };
 
-            mFirebaseAdapter2=new FirebaseRecyclerAdapter<Restaurant, FirebaseUserRestaurantViewHolder>
-                    (Restaurant.class,R.layout.user_saved_restarurant_list,FirebaseUserRestaurantViewHolder.class, mAllRestaurantReference) {
+        if(mAllPostReference != null){
+            mFirebaseAdapter1 = new FirebaseRecyclerAdapter<Food, FirebaseAllPostViewHolder>
+                    (Food.class, R.layout.user_saved_recipe_list, FirebaseAllPostViewHolder.class, mAllPostReference) {
                 @Override
-                protected void populateViewHolder (FirebaseUserRestaurantViewHolder
-                viewHolder, Restaurant model,int position){
-                viewHolder.bindUserRestaurant(model);
-            }
-        };
+                protected void populateViewHolder(FirebaseAllPostViewHolder viewHolder, Food model, int position) {
+                    viewHolder.bindAllPost(model);
 
+                }
+            };
+            rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
+        }
+
+        if(mAllRestaurantReference != null) {
+
+            mFirebaseAdapter2 = new FirebaseRecyclerAdapter<Restaurant, FirebaseUserRestaurantViewHolder>
+                    (Restaurant.class, R.layout.user_saved_restarurant_list, FirebaseUserRestaurantViewHolder.class, mAllRestaurantReference) {
+                @Override
+                protected void populateViewHolder(FirebaseUserRestaurantViewHolder
+                                                          viewHolder, Restaurant model, int position) {
+
+                    viewHolder.bindUserRestaurant(model);
+                }
+            };
+            rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
+        }
 
         mRecyclerView.setHasFixedSize(true);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        mRecyclerView.setAdapter(mFirebaseAdapter1);
-
         //init your RecyclerView as usual
         RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        //construct a joiner
-        RvJoiner rvJoiner = new RvJoiner();
-
-//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_recipe_list));
-        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
-
-//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restarurant_list));
-        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
-
-        //set join adapter to your RecyclerView
         rv.setAdapter(rvJoiner.getAdapter());
     }
 
@@ -106,9 +104,19 @@ public class AllSavedRecipes extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if (view == mGoBackToFavoritesButton){
+        if (view == mGoBackToFavoritesButton) {
             Intent intent = new Intent(this, UserActivity.class);
             startActivity(intent);
         }
+
+//        if (view == mRecyclerView) {
+//            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mFood.getLink()));
+//            startActivity(webIntent);
+//        }
     }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        return super.onOptionsItemSelected(item);
+//    }
 }

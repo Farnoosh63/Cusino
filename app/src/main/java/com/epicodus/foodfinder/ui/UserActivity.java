@@ -128,22 +128,16 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
         };
         mRecyclerView.setHasFixedSize(true);
+        //construct a joiner
+        RvJoiner rvJoiner = new RvJoiner();
 
+        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
+        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
 
         //init your RecyclerView as usual
         RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        //construct a joiner
-        RvJoiner rvJoiner = new RvJoiner();
-
-//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_recipe_list));
-        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
-
-//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restarurant_list));
-        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
-
-        //set join adapter to your RecyclerView
         rv.setAdapter(rvJoiner.getAdapter());
 
     }
