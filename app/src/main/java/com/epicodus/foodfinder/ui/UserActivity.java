@@ -87,7 +87,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         String uid = user.getUid();
 
         String userName = user.getDisplayName();
-        mUserName.setText(userName + "'s saved Recipes:");
+        mUserName.setText(userName + "'s saved Recipes and Restaurants:");
 
         mAllPostReference = FirebaseDatabase
                 .getInstance()
@@ -132,8 +132,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         mRecyclerView.setHasFixedSize(true);
 
 
-
-
         //init your RecyclerView as usual
         RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
@@ -141,21 +139,16 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         //construct a joiner
         RvJoiner rvJoiner = new RvJoiner();
 
-        rvJoiner.add(new JoinableLayout(R.layout.user_saved_recipe_list));
+//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_recipe_list));
         rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
 
-        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restaruarnt_list));
+//        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restaruarnt_list));
         rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
-
-
 
         //set join adapter to your RecyclerView
         rv.setAdapter(rvJoiner.getAdapter());
 
     }
-
-
-
 
 
 
