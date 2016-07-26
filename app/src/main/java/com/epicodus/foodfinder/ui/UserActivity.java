@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,8 +21,10 @@ import android.widget.TextView;
 import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.adapter.FirebaseAllPostViewHolder;
+import com.epicodus.foodfinder.adapter.FirebaseUserRestaurantViewHolder;
 import com.epicodus.foodfinder.models.Food;
 
+import com.epicodus.foodfinder.models.Restaurant;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,13 +36,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import su.j2e.rvjoiner.JoinableAdapter;
+import su.j2e.rvjoiner.JoinableLayout;
+import su.j2e.rvjoiner.RvJoiner;
 
 public class UserActivity extends AppCompatActivity implements View.OnClickListener  {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference mAllPostReference;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
+    private DatabaseReference mUserRestaurantReference;
+    private FirebaseRecyclerAdapter mFirebaseAdapter1;
+    private FirebaseRecyclerAdapter mFirebaseAdapter2;
+    private RvJoiner rvJoiner = new RvJoiner(true);//auto update ON, stable ids ON
+
 
 
 
@@ -84,6 +94,11 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                 .getReference(Constants.FIREBASE_CHILD_SAVED_RECIPE)
                 .child(uid);
 
+        mUserRestaurantReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT)
+                .child(uid);
+
         setUpFirebaseAdapter();
         mFindFoodsButton.setOnClickListener(this);
         mSeeAllRecipeButton.setOnClickListener(this);
@@ -92,26 +107,64 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-    private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Food, FirebaseAllPostViewHolder>
-                (Food.class, R.layout.user_saved_recipe_list, FirebaseAllPostViewHolder.class, mAllPostReference) {
-            @Override
-            protected void populateViewHolder(FirebaseAllPostViewHolder viewHolder,Food model, int position) {
-                viewHolder.bindAllPost(model);
 
+
+    private void setUpFirebaseAdapter() {
+        mFirebaseAdapter1 = new FirebaseRecyclerAdapter<Food, FirebaseAllPostViewHolder>
+                (Food.class, R.layout.user_saved_recipe_list, FirebaseAllPostViewHolder.class, mAllPostReference) {
+
+            @Override
+            protected void populateViewHolder(FirebaseAllPostViewHolder viewHolder, Food model, int position) {
+                viewHolder.bindAllPost(model);
             }
+        };
+            mFirebaseAdapter2 = new FirebaseRecyclerAdapter<Restaurant, FirebaseUserRestaurantViewHolder>
+                    (Restaurant.class, R.layout.user_saved_restaruarnt_list, FirebaseUserRestaurantViewHolder.class, mUserRestaurantReference) {
+
+
+                @Override
+                protected void populateViewHolder(FirebaseUserRestaurantViewHolder viewHolder, Restaurant model, int position) {
+                    viewHolder.bindUserRestaurant(model);
+                }
+
+
         };
         mRecyclerView.setHasFixedSize(true);
 
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
+
+
+        //init your RecyclerView as usual
+        RecyclerView rv = (RecyclerView) findViewById(R.id.recyclerView);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+
+        //construct a joiner
+        RvJoiner rvJoiner = new RvJoiner();
+
+        rvJoiner.add(new JoinableLayout(R.layout.user_saved_recipe_list));
+        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter1));
+
+        rvJoiner.add(new JoinableLayout(R.layout.user_saved_restaruarnt_list));
+        rvJoiner.add(new JoinableAdapter(mFirebaseAdapter2));
+
+
+
+        //set join adapter to your RecyclerView
+        rv.setAdapter(rvJoiner.getAdapter());
+
     }
+
+
+
+
+
 
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        mFirebaseAdapter.cleanup();
+        mFirebaseAdapter1.cleanup();
+        mFirebaseAdapter2.cleanup();
+
     }
 
 

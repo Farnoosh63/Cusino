@@ -129,6 +129,8 @@ public class FoodDetailFragment extends Fragment implements View.OnClickListener
             pushRef2.setValue(mFood);
 
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+            Intent refresh = new Intent(this.getActivity(), UserActivity.class);
+            startActivity(refresh);
         }
         if (view == mWebsiteLabel) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW,

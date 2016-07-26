@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.epicodus.foodfinder.Constants;
 import com.epicodus.foodfinder.R;
 import com.epicodus.foodfinder.models.Restaurant;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -95,11 +97,30 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
             startActivity(mapIntent);
         }
         if (v == mSaveRestaurantButton) {
-            mSavedRestaurant = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT).push();
-            String pushId = mSavedRestaurant.getKey();
+//            mSavedRestaurant = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT).push();
+//            String pushId = mSavedRestaurant.getKey();
+//            mRestaurant.setPushId(pushId);
+//            mSavedRestaurant.setValue(mRestaurant);
+
+
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            mSavedRestaurant = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT).child(uid);
+//            DatabaseReference mSavedRestaurant2 = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SAVED_RESTAURANT_2);
+
+            DatabaseReference pushRef = mSavedRestaurant.push();
+//            DatabaseReference pushRef2 = mSavedRestaurant2.push();
+            String pushId = pushRef.getKey();
+//            String pushId2 = pushRef2.getKey();
             mRestaurant.setPushId(pushId);
-            mSavedRestaurant.setValue(mRestaurant);
+
+            pushRef.setValue(mRestaurant);
+//            pushRef2.setValue(mRestaurant);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+            Intent refresh = new Intent(this.getActivity(), UserActivity.class);
+            startActivity(refresh);
         }
     }
 }

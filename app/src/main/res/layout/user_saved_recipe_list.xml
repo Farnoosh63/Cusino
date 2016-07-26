@@ -16,6 +16,7 @@
         <ImageView
             android:layout_width="50dip"
             android:layout_height="50dip"
+            android:background="@drawable/down"
             android:id="@+id/foodImage"
             android:scaleType="centerCrop"/>
     </LinearLayout>
@@ -28,13 +29,12 @@
         android:layout_toRightOf="@+id/thumbnail"
         android:textSize="15dip"
         android:textStyle="bold"
-        android:text="Recipe Name"
+        android:text="User saved Recipes"
         android:textColor="@color/colorPrimary"/>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Ingredients"
         android:id="@+id/ingredients"
         android:layout_below="@+id/foodName"
         android:textSize="10dip"
