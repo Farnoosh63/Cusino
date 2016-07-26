@@ -25,10 +25,10 @@ public class FirebaseUserRestaurantViewHolder extends RecyclerView.ViewHolder  {
     public void bindUserRestaurant(Restaurant restaurant) {
         ImageView imageUrl = (ImageView) mView.findViewById(R.id.imageUrl);
         TextView restaurantName = (TextView) mView.findViewById(R.id.restaurantName);
-//        TextView categories = (TextView) mView.findViewById(R.id.categories);
+        TextView categories = (TextView) mView.findViewById(R.id.categories);
 
         restaurantName.setText(restaurant.getName());
-//        categories.setText((CharSequence) restaurant.getCategories());
+        categories.setText(restaurant.getCategories().get(0));
         Picasso.with(mContext)
                 .load(restaurant.getImageUrl())
                 .resize(400, 200)
