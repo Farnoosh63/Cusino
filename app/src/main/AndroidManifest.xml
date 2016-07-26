@@ -31,14 +31,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.foodfinder.ui.UserActivity" />
         </activity>
-        <activity android:name=".ui.FoodDetailActivity" />
+        <activity android:name=".ui.FoodDetailActivity">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.foodfinder.ui.SearchActivity" />
+        </activity>
         <activity android:name=".ui.AllSavedRecipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.foodfinder.ui.UserActivity" />
         </activity>
-        <activity android:name=".ui.SearchRestaurantActivity" />
-        <activity android:name=".ui.RestaurantDetailActivity"></activity>
+        <activity android:name=".ui.SearchRestaurantActivity" >
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.epicodus.foodfinder.ui.UserActivity" />
+        </activity>
+        <activity android:name=".ui.RestaurantDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.foodfinder.ui.SearchRestaurantActivity" />
+        </activity>
     </application>
 
 </manifest>
