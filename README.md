@@ -20,6 +20,8 @@ Below screenshots show some part of the app;
 <img id="screen-1" src="https://s26.postimg.org/9r8f4nmwp/Screen_Shot_2016_07_26_at_4_23_12_PM.png" title="Detail Recipe Screen" />
 <img id="screen-1" src="https://s26.postimg.org/urygpkqex/Screen_Shot_2016_07_26_at_4_29_41_PM.png" title="User Activity Screen" />
 
+youtube video for this app: https://youtu.be/0kDSqJsrx94
+
 ## Known Bugs
 
 > **Not Seen Yet!**
