@@ -21,6 +21,7 @@ Below screenshots show some part of the app;
 <img id="screen-1" src="https://s26.postimg.org/urygpkqex/Screen_Shot_2016_07_26_at_4_29_41_PM.png" title="User Activity Screen" />
 
 youtube video for this app: https://youtu.be/0kDSqJsrx94
+google play link https://play.google.com/store/apps/details?id=com.epicodus.foodfinder
 
 ## Known Bugs
 
