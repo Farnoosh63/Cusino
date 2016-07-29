@@ -57,8 +57,9 @@ public class SearchRestaurantActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String foodType = intent.getStringExtra("foodType");
-        getRestaurants(foodType);
+//        String foodType = intent.getStringExtra("foodType");
+////        String foodType = foodType2.trim();
+//        getRestaurants(foodType);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentRestaurantSearched = mSharedPreferences.getString(Constants.PREFERENCES_RESTAURANT_KEY, null);
@@ -123,8 +124,9 @@ public class SearchRestaurantActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-                addToSharedPreferences(query);
-                getRestaurants(query);
+                String trimQuery = query.trim();
+                addToSharedPreferences(trimQuery);
+                getRestaurants(trimQuery);
                 return false;
             }
 
