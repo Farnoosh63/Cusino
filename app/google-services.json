@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:968855818315:android:bb457ebe5e3e34dc",
         "android_client_info": {
-          "package_name": "com.epicodus.foodfinder"
+          "package_name": "com.epicodus.cusino"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "968855818315-m0l1g376fm6t3ej079rpct3dh6egn5kg.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.epicodus.foodfinder",
+            "package_name": "com.epicodus.cusino",
             "certificate_hash": "64C8CB6664D8339674FFB3A2EEBC04FCBCF0208A"
           }
         },

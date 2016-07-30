@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.epicodus.foodfinder">
+    package="com.epicodus.cusino">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -29,27 +29,27 @@
         <activity android:name=".ui.SearchActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.foodfinder.ui.UserActivity" />
+                android:value="com.epicodus.cusino.ui.UserActivity" />
         </activity>
         <activity android:name=".ui.FoodDetailActivity">
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.foodfinder.ui.SearchActivity" />
+            android:value="com.epicodus.cusino.ui.SearchActivity" />
         </activity>
         <activity android:name=".ui.AllSavedRecipes">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.foodfinder.ui.UserActivity" />
+                android:value="com.epicodus.cusino.ui.UserActivity" />
         </activity>
         <activity android:name=".ui.SearchRestaurantActivity" >
         <meta-data
             android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.foodfinder.ui.UserActivity" />
+            android:value="com.epicodus.cusino.ui.UserActivity" />
         </activity>
         <activity android:name=".ui.RestaurantDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.foodfinder.ui.SearchRestaurantActivity" />
+                android:value="com.epicodus.cusino.ui.SearchRestaurantActivity" />
         </activity>
     </application>
 

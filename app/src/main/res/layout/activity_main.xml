@@ -8,7 +8,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        tools:context="com.epicodus.foodfinder.ui.MainActivity"
+        tools:context="com.epicodus.cusino.ui.MainActivity"
         android:background="@color/bright_foreground_material_dark">
 
         <TextView

@@ -1,4 +1,4 @@
-# Cusino ![foodfinder](https://maxcdn.icons8.com/iOS7/PNG/50/Ecommerce/food-50.png)
+# Cusino ![cusino](https://maxcdn.icons8.com/iOS7/PNG/50/Ecommerce/food-50.png)
 
 
 > **By Farnoosh Johnson**
@@ -22,7 +22,7 @@ Below screenshots show some part of the app;
 
 > youtube video for this app: https://youtu.be/0kDSqJsrx94
 
-> google play link https://play.google.com/store/apps/details?id=com.epicodus.foodfinder
+> google play link https://play.google.com/store/apps/details?id=com.epicodus.cusino
 
 ## Known Bugs
 
@@ -45,7 +45,7 @@ Below screenshots show some part of the app;
 
 
 
-**Accessing to the remote repository on account :** [farnoosh63](https://github.com/Farnoosh63/FoodFinder.git)
+**Accessing to the remote repository on account :** [farnoosh63](https://github.com/Farnoosh63/Cusino.git)
 
 
 **Accessing to github pages for this application :**
