@@ -11,18 +11,18 @@
 ## __Description__
 
 
-###### Cusino is an Android application that markets mobile app, which allow user to search recipe and restaurants, create secure and personalized accounts, log in and out,and add their favorite recipes to their own custom list as well as accessing the full cooking instruction of the recipe and complete information for the restaurants by redirecting to the another application. User also have access to see all the favorite recipes and restaurants by other user.
+###### Cusino is an Android application that allows users to search recipes and restaurants, create personalized accounts, log in and out, and add favorite recipes and/or restaurants to their own custom list. Cusino accesses full cooking instructions of recipes and complete information for the restaurants by redirecting the user to the another application. Users have access to see all the favorite recipes and restaurants by other users.
 Below screenshots show some part of the app;
 
-<img id="screen-1" src="https://s26.postimg.org/63snylepl/Screen_Shot_2016_07_26_at_4_19_36_PM.png" title="Launcher Screen" />
-<img id="screen-1" src="https://s26.postimg.org/fpm8ew5vd/Screen_Shot_2016_07_26_at_4_21_30_PM.png" title="Create Account Screen" />
+<img id="screen-1" src="https://s26.postimg.org/f2f20ms3d/Screen_Shot_2016_07_29_at_8_00_50_PM.png" width="160" height="320" title="Launcher Screen" />
+<img id="screen-1" src="https://s26.postimg.org/l4mor4gjd/Screen_Shot_2016_07_29_at_7_59_36_PM.png" width="160" height="320" title="Create Account Screen" />
 <img id="screen-1" src="https://s26.postimg.org/vp4vyg1x5/Screen_Shot_2016_07_26_at_4_22_45_PM.png" title="Api search for recipe" />
 <img id="screen-1" src="https://s26.postimg.org/9r8f4nmwp/Screen_Shot_2016_07_26_at_4_23_12_PM.png" title="Detail Recipe Screen" />
 <img id="screen-1" src="https://s26.postimg.org/urygpkqex/Screen_Shot_2016_07_26_at_4_29_41_PM.png" title="User Activity Screen" />
 
 > youtube video for this app: https://youtu.be/0kDSqJsrx94
 
-> google play link https://play.google.com/store/apps/details?id=com.epicodus.foodfinder
+> google play link https://play.google.com/store/apps/details?id=com.epicodus.cusino
 
 ## Known Bugs
 
