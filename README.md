@@ -15,7 +15,7 @@
 Below screenshots show some part of the app;
 
 <img id="screen-1" src="https://s26.postimg.org/udov18pfd/Screen_Shot_2016_07_29_at_7_58_18_PM.png" width="160" height="320" title="Launcher Screen" />
-<img id="screen-1" src="https://s26.postimg.org/l4mor4gjd/Screen_Shot_2016_07_29_at_7_59_36_PM.png" width="160" height="320" title="Create Account Screen" />
+<img id="screen-1" src="https://s26.postimg.org/cc5q3fveh/Screen_Shot_2016_07_29_at_8_38_28_PM.png" width="160" height="320" title="Create Account Screen" />
 <img id="screen-1" src="https://s26.postimg.org/vp4vyg1x5/Screen_Shot_2016_07_26_at_4_22_45_PM.png" title="Api search for recipe" />
 <img id="screen-1" src="https://s26.postimg.org/9r8f4nmwp/Screen_Shot_2016_07_26_at_4_23_12_PM.png" title="Detail Recipe Screen" />
 <img id="screen-1" src="https://s26.postimg.org/urygpkqex/Screen_Shot_2016_07_26_at_4_29_41_PM.png" title="User Activity Screen" />
