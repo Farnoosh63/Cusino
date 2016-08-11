@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -52,6 +53,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+
     @Bind(R.id.userinfo) TextView mUserInfo;
     @Bind(R.id.findFoodsButton) Button mFindFoodsButton;
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -81,6 +83,9 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         };
 
 
+
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
@@ -101,7 +106,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         mFindFoodsButton.setOnClickListener(this);
         mSeeAllRecipeButton.setOnClickListener(this);
         mFindRestaurantButton.setOnClickListener(this);
-
 
 
     }
@@ -202,8 +206,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
-
-
 
     @Override
     public void onStart() {
