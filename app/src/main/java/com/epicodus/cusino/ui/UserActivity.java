@@ -61,8 +61,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1;
     private GoogleApiClient googleApiClient;
 
-    private double mLatitude;
-    private double mLongitude;
     private String zipcode;
 
 
@@ -82,12 +80,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
         ButterKnife.bind(this);
-//        boolean permissionGranted = isPermissionGranted();
-//        if (permissionGranted) {
-//           // getLocationInfo();
-//        } else {
-//            Log.d("permission", "not yet granted");
-//        }
 
         googleApiClient = new GoogleApiClient.Builder(this, this, this).addApi(LocationServices.API).build();
 
@@ -127,26 +119,12 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         Log.d(TAG, "onCreate: zipcode is" + zipcode);
     }
 
-    private boolean isPermissionGranted() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
-                    PERMISSION_ACCESS_COARSE_LOCATION);
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case PERMISSION_ACCESS_COARSE_LOCATION:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                    Intent intent = new Intent(this, UserActivity.class);
-//                    startActivity(intent);
 
                     mFindRestaurantButton.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -156,7 +134,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                             startActivity(intent);
                         }
                     });
-//                    getLocationInfo();
+
                     Log.d("permission", "granted");
                 } else {
                     Toast.makeText(this, "Need your location!", Toast.LENGTH_SHORT).show();
@@ -252,16 +230,16 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
             //finish();
         }
-//        if(v == mFindRestaurantButton){
-//
-//
-//            Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
-////            zipcode = getLocationInfo();
-////            intent.putExtra("zipcode", getLocationInfo());
-////            Log.d(TAG, "onClick zipcode is " + zipcode);
-//            startActivity(intent);
-//
-//        }
+        if(v == mFindRestaurantButton){
+
+
+            Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
+            zipcode = getLocationInfo();
+            intent.putExtra("zipcode", getLocationInfo());
+            Log.d(TAG, "onClick zipcode is " + zipcode);
+            startActivity(intent);
+
+        }
 
     }
 
@@ -295,18 +273,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
 
-
-//
-//        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-//                == PackageManager.PERMISSION_GRANTED) {
-////            Location lastLocation = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
-////
-////            mLatitude = lastLocation.getLatitude();
-////            mLongitude = lastLocation.getLongitude();
-////            Log.d(TAG, "onConnected: " + mLatitude);
-////            Log.d(TAG, "user city: " + getLocationInfo());
-//
-//        }
     }
 
     @SuppressWarnings({"MissingPermission"})
@@ -325,8 +291,6 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             Log.d(TAG, "city is: "+ city);
             zipcode =address.get(0).getPostalCode();
             Log.d(TAG, "postal code is: "+ zipcode);
-//            Intent intent = new Intent(this, SearchRestaurantActivity.class);
-//            intent.putExtra("zipcode", zipcode);
 
 
         } catch (IOException e) {

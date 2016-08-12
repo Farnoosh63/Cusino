@@ -108,15 +108,13 @@ public class RestaurantDetailFragment extends Fragment implements View.OnClickLi
             DatabaseReference pushRef = mSavedRestaurant.push();
             DatabaseReference pushRef2 = mSavedRestaurant2.push();
             String pushId = pushRef.getKey();
-//            String pushId2 = pushRef2.getKey();
             mRestaurant.setPushId(pushId);
 
             pushRef.setValue(mRestaurant);
             pushRef2.setValue(mRestaurant);
 
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-//            Intent refresh = new Intent(this.getActivity(), UserActivity.class);
-//            startActivity(refresh);
+
         }
     }
 }
