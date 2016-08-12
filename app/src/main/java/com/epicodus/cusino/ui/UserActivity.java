@@ -61,7 +61,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
     private static final int PERMISSION_ACCESS_COARSE_LOCATION = 1;
     private GoogleApiClient googleApiClient;
 
-    private String zipcode;
+    private String cityName;
 
 
 
@@ -116,7 +116,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
         mSeeAllRecipeButton.setOnClickListener(this);
         mFindRestaurantButton.setOnClickListener(this);
 
-        Log.d(TAG, "onCreate: zipcode is" + zipcode);
+        Log.d(TAG, "onCreate: cityname is" + cityName);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
-                            intent.putExtra("zipcode", getLocationInfo());
+                            intent.putExtra("cityName", getLocationInfo());
                             startActivity(intent);
                         }
                     });
@@ -234,9 +234,9 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
 
 
             Intent intent = new Intent(UserActivity.this, SearchRestaurantActivity.class);
-            zipcode = getLocationInfo();
-            intent.putExtra("zipcode", getLocationInfo());
-            Log.d(TAG, "onClick zipcode is " + zipcode);
+            cityName = getLocationInfo();
+            intent.putExtra("cityName", getLocationInfo());
+            Log.d(TAG, "onClick city name is " + cityName);
             startActivity(intent);
 
         }
@@ -287,17 +287,17 @@ public class UserActivity extends AppCompatActivity implements View.OnClickListe
             List<Address> address = geocoder.getFromLocation(lastLocation.getLatitude(), lastLocation.getLongitude(), 1);
 //            Address userLocationInfo = address.get(0);
 //            name.add(userLocationInfo.getAddressLine(0));
-            String city=address.get(0).getLocality();
-            Log.d(TAG, "city is: "+ city);
-            zipcode =address.get(0).getPostalCode();
+            cityName=address.get(0).getLocality();
+            Log.d(TAG, "city is: "+ cityName);
+            String zipcode =address.get(0).getPostalCode();
             Log.d(TAG, "postal code is: "+ zipcode);
 
 
         } catch (IOException e) {
-            Toast.makeText(UserActivity.this, "Location not found.", Toast.LENGTH_SHORT).show();
-            zipcode="";
+            Toast.makeText(UserActivity.this, "Location not found. Automatically assigned to Portland OR", Toast.LENGTH_SHORT).show();
+            cityName="Portland";
         }
-        return zipcode;
+        return cityName;
     }
 
 

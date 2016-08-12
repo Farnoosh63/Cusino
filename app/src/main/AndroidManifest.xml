@@ -36,9 +36,7 @@
                 android:value="com.epicodus.cusino.ui.UserActivity" />
         </activity>
         <activity android:name=".ui.FoodDetailActivity">
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value="com.epicodus.cusino.ui.SearchActivity" />
+
         </activity>
         <activity android:name=".ui.AllSavedRecipes">
             <meta-data
@@ -51,9 +49,7 @@
             android:value="com.epicodus.cusino.ui.UserActivity" />
         </activity>
         <activity android:name=".ui.RestaurantDetailActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.cusino.ui.SearchRestaurantActivity" />
+
         </activity>
     </application>
 

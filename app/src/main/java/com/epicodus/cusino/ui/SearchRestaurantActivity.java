@@ -66,10 +66,10 @@ public class SearchRestaurantActivity extends AppCompatActivity  {
 
     private void getRestaurants(String foodType) {
         Intent intent= getIntent();
-        String zipcode= intent.getStringExtra("zipcode");
-        Log.d(TAG, "getRestaurants zipcode is: "+ zipcode);
+        String cityName= intent.getStringExtra("cityName");
+        Log.d(TAG, "getRestaurants city name is: "+ cityName);
         final YelpService yelpService = new YelpService();
-        yelpService.findRestaurants(foodType,zipcode, new Callback() {
+        yelpService.findRestaurants(foodType,cityName, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 e.printStackTrace();
